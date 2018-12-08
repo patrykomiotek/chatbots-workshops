@@ -1,0 +1,29 @@
+intents:
+  - greet
+  - goodbye
+  - mood_affirm
+  - mood_deny
+  - mood_menu
+  - mood_opening
+  - mood_order
+
+actions:
+- utter_greet
+- utter_goodbye
+- utter_menu
+- utter_check_opening_hours
+- utter_order
+- utter_ending
+
+templates:
+  utter_greet:
+  - text: "Hey! How can I help you?"
+
+  utter_order:
+  - text: "Your order has been shipped."
+
+  utter_ending:
+  - text: "Anything else?"
+
+  utter_goodbye:
+  - text: "Bye"
