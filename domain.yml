@@ -13,6 +13,7 @@ actions:
 - utter_menu
 - utter_check_opening_hours
 - utter_order
+- utter_ending
 
 templates:
   utter_greet:
