@@ -22,3 +22,25 @@ class ActionCheckOpeningHours(Action):
           except KeyError:
               print('No match for open hours')
       return [SlotSet("matches", [])]
+
+class ActionMenu(Action):
+    def name(self):
+        # type: () -> Text
+        return "menu"
+
+    def run(self, dispatcher, tracker, domain):
+        # type: (CollectingDispatcher, Tracker, Dict[Text, Any]) -> List[Dict[Text, Any]]
+        week_day = datetime.datetime.today().strftime('%A')
+        with open('menu.json') as json_file:
+            data = json.load(json_file)
+            items = data['items']
+
+            message = ""
+            for item in items:
+                name = item['name']
+                price = item['price']
+                preparationTime = item['preparation_time']
+                message += f'Menu:\n {name} - {preparationTime}h - {price}\n'
+            dispatcher.utter_message(message)
+            return [SlotSet("matches", [message])]
+
